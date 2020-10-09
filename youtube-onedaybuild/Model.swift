@@ -27,10 +27,25 @@ class Model {
             
             // Check if there were any errors
             if error != nil && data == nil {
+                
+                print("There is some errors or response data does not exist.")
+                
                 return
             }
             
-            // Parsing the data into video objects
+            do {
+                
+                // Parsing the data into video objects
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let response = try decoder.decode(Response.self, from: data!)
+                
+                dump(response)
+            }
+            catch {
+                
+            }
             
         }
         
