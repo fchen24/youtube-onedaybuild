@@ -43,11 +43,11 @@ class VideoTableViewCell: UITableViewCell {
         }
         
         // Set the title and date label
-        self.titleLabel.text = self.video?.title
+        self.titleLabel.text = self.video!.title
         
         let date = self.video?.publishedTime // Date object
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+        dateFormatter.dateFormat = Constants.DATE_FORMAT
         dateFormatter.locale = Locale(identifier: "en_US")
         
         self.dateLabel.text = dateFormatter.string(from: date!)
@@ -81,7 +81,7 @@ class VideoTableViewCell: UITableViewCell {
                 CacheManager.setVideoCache(url!.absoluteString, data!)
                 
                 // Check that the downloaded url matches the video thumbnail url that this cell is currently set to display
-                if url!.absoluteString != self.video?.thumbnail {
+                if url!.absoluteString != self.video!.thumbnail {
                     
                     // Video cell has been recycled for another video and no longer matches the thumbnail that was downloaded
                     return
