@@ -4,8 +4,7 @@ Basic API calling, JSON parsing, project files hierarchy, Delegation pattern, gi
 
 [-> *CodeWithChris: ONE-DAY Build - YouTube Video App* <-](https://www.youtube.com/playlist?list=PLMRqhzcHGw1aLoz4pM_Mg2TewmJcMg9ua)
 
----
-### API Calling
+## API Calling
 - Create a URL object
 
 `let url = URL(string: urlSring)`
@@ -38,8 +37,7 @@ Basic API calling, JSON parsing, project files hierarchy, Delegation pattern, gi
 
 `dataTask.resume()`
 
----
-### JSON parsing
+## JSON parsing
 - Parsing the data into the object
 
 `let decoder = JSONDecoder()`
@@ -58,12 +56,10 @@ Using enumeration.
 `self.items = try container.decode([Video].self, forKey: .items)`
 `let snippetContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .snippet)`
 
----
-### Delegation
+## Delegation
 「Delegation is a design pattern that enables a class or structure to hand off (or delegate) some of its responsibilities to an instance of another type. This design pattern is implemented by defining a protocol that encapsulates the delegated responsibilities, such that a conforming type (known as a delegate) is guaranteed to provide the functionality that has been delegated. Delegation can be used to respond to a particular action, or to retrieve data from an external source without needing to know the underlying type of that source.」 - From Apple manual "The Swift Programming Language".
 
----
-### Project files hierarchy
+## Project files hierarchy
 Through Model-View-Controller (MVC) design patter, we need to manage our source code in a good manner:
 1. Models
 2. Views
@@ -71,6 +67,9 @@ Through Model-View-Controller (MVC) design patter, we need to manage our source 
 4. Storyboards
 5. Helpers
 6. ...
----
-### More suggestions!!
+
+## More suggestions!!
 If one functionality uses more than once, it is a chance to think about encapsulating it into a single file. That is a good coding manner, you will gain more if you should change it somewhile in the future!
+
+---
+by *fei.chen*
