@@ -52,11 +52,8 @@ class DetailViewController: UIViewController {
         
         // Set the date
         let date = video?.publishedTime // Date object
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.DATE_FORMAT
-        dateFormatter.locale = Locale(identifier: "en_US")
         
-        dateLabel.text = dateFormatter.string(from: date!)
+        dateLabel.text = DateFormatting.getDateFormattingString(date!)
         
         // Set the description
         textView.text = video!.description

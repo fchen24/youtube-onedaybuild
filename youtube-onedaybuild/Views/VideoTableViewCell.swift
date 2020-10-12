@@ -46,11 +46,8 @@ class VideoTableViewCell: UITableViewCell {
         self.titleLabel.text = self.video!.title
         
         let date = self.video?.publishedTime // Date object
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.DATE_FORMAT
-        dateFormatter.locale = Locale(identifier: "en_US")
         
-        self.dateLabel.text = dateFormatter.string(from: date!)
+        self.dateLabel.text = DateFormatting.getDateFormattingString(date!)
         
         // Set the thumbnail
         guard self.video!.thumbnail != "" else {

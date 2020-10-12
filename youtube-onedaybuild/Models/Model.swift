@@ -29,7 +29,7 @@ class Model {
         let session = URLSession.shared
         
         // Get a data task from the URLSession object
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+        let dataTask = session.dataTask(with: url!) { (data, urlResponse, error) in
             
             // Check if there were any errors
             if error != nil && data == nil {
@@ -45,9 +45,8 @@ class Model {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 
+                // Init response with decoder
                 let response = try decoder.decode(Response.self, from: data!)
-                
-                self.delegate?.videosFetched(response.items!)
                 
                 if response.items != nil {
                     
